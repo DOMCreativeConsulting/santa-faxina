@@ -18,3 +18,34 @@
 .box{
     background-color:white;
 }
+
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #d1d1d1;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+.step-active{
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #444;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+.multi-step{
+    text-align:center;
+    padding:1%;
+}
+
+label{
+    font-size:14px;
+}
