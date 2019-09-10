@@ -83,7 +83,7 @@
                     <input type="text" class="form-control" name="caracteristica">
                 </div>
                 <div class="col-md-4">
-                    <button type="button" id="botao-passo2" class="btn btn-primary" style="margin-top:32px;width:100%">Próximo</button>
+                    <button type="submit" id="botao-passo2" class="btn btn-primary" style="margin-top:32px;width:100%">Próximo</button>
                 </div>
             </div>
         </div>

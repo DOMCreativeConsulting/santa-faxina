@@ -18,4 +18,9 @@ class HomeController
         die('Não há uma "view" para essa rota! <br><a href="logout">Sair</a>');
     }
 
+    public function cadastro()
+    {
+        dd($_POST);
+    }
+
 }

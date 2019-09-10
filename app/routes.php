@@ -2,16 +2,18 @@
 
 $folder = 'santa-faxina';
 
-$router->post("$folder/login", 'UsersController@login', 'public');
-$router->get("$folder/logout", 'UsersController@logout', 'public');
+$router->post("$folder/login", 'UsersController@login');
+$router->get("$folder/logout", 'UsersController@logout');
 
-$router->get("$folder/recuperar-senha", 'UsersController@recuperarSenha', 'public');
+$router->get("$folder/recuperar-senha", 'UsersController@recuperarSenha');
 
-$router->post("$folder/enviar-email", 'EmailController@enviar', 'public');
-$router->post("$folder/atualizar-senha", 'UsersController@atualizarSenha', 'public');
+$router->post("$folder/enviar-email", 'EmailController@enviar');
+$router->post("$folder/atualizar-senha", 'UsersController@atualizarSenha');
 
-$router->get("$folder/perfil", 'UsersController@perfil', 'public');
+$router->get("$folder/perfil", 'UsersController@perfil');
 
-$router->get("$folder", 'HomeController@index', 'public');
-$router->get("$folder/home", 'HomeController@index', 'public');
-$router->get("$folder/painel", 'HomeController@painel', 'public');
+$router->post("$folder/cadastrar", 'HomeController@cadastro');
+
+$router->get("$folder", 'HomeController@index');
+$router->get("$folder/home", 'HomeController@index');
+$router->get("$folder/painel", 'HomeController@painel');

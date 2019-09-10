@@ -13,6 +13,15 @@ $('#passo1').submit(() => {
 
 $('#passo2').submit(() => {
     event.preventDefault();
+
+    var dados = $('#passo1').serialize() + '&' + $('#passo2').serialize();
+
+    console.log(dados);
+
+    $.post('cadastrar', dados, response => {
+
+    });
+
     $("#passo2").hide();
     $("#passo3").fadeIn(300);
 });
