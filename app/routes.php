@@ -12,7 +12,7 @@ $router->post("$folder/atualizar-senha", 'UsersController@atualizarSenha');
 
 $router->get("$folder/perfil", 'UsersController@perfil');
 
-$router->post("$folder/cadastrar", 'HomeController@cadastro');
+$router->post("$folder/cadastrar", 'ClientesController@cadastrar');
 
 $router->get("$folder", 'HomeController@index');
 $router->get("$folder/home", 'HomeController@index');

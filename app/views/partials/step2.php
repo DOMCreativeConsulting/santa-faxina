@@ -13,42 +13,42 @@
             </div>
             <div class="row p-2">
                 <div class="col-md-4">
-                    <label for="tipo-residencia">Tipo de residência:</label>
-                    <select name="tipo-residencia" class="form-control">
+                    <label for="tipo_residencia">Tipo de residência:</label>
+                    <select name="tipo_residencia" class="form-control">
                         <option value="casa">Casa</option>
                         <option value="apartamento">Apartamento</option>
                         <option value="sobrado">Sobrado</option>
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <label for="nquartos">Nº de quartos:</label>
-                    <input type="number" class="form-control" name="nquartos" placeholder="0">
+                    <label for="quartos">Nº de quartos:</label>
+                    <input type="number" class="form-control" name="quartos" placeholder="0">
                 </div>
                 <div class="col-md-2">
-                    <label for="nsuites">Nº de suites:</label>
-                    <input type="number" class="form-control" name="nsuites" placeholder="0">
+                    <label for="suites">Nº de suites:</label>
+                    <input type="number" class="form-control" name="suites" placeholder="0">
                 </div>
                 <div class="col-md-2">
-                    <label for="nbanheiros">Nº de banheiros:</label>
-                    <input type="number" class="form-control" name="nbanheiros" placeholder="0">
+                    <label for="banheiros">Nº de banheiros:</label>
+                    <input type="number" class="form-control" name="banheiros" placeholder="0">
                 </div>
                 <div class="col-md-2">
-                    <label for="nsalas">Nº de salas:</label>
-                    <input type="number" class="form-control" name="nsalas" placeholder="0">
+                    <label for="salas">Nº de salas:</label>
+                    <input type="number" class="form-control" name="salas" placeholder="0">
                 </div>
             </div>
             <div class="row p-2">
                 <div class="col-md-2">
-                    <label for="npecas">Nº de peças:</label>
-                    <input type="number" class="form-control" name="npecas" placeholder="0">
+                    <label for="pecas">Nº de peças:</label>
+                    <input type="number" class="form-control" name="pecas" placeholder="0">
                 </div>
                 <div class="col-md-2">
-                    <label for="nsalas">M²:</label>
-                    <input type="number" class="form-control" name="nsalas" placeholder="Ex: 75">
+                    <label for="area">M²:</label>
+                    <input type="number" class="form-control" name="area" placeholder="Ex: 75">
                 </div>
                 <div class="col-md-8">
-                    <label for="tempo">A quanto tempo/dias essa residência não é limpa?</label>
-                    <input type="text" class="form-control" name="tempo">
+                    <label for="tempo_nao_limpo">A quanto tempo/dias essa residência não é limpa?</label>
+                    <input type="text" class="form-control" name="tempo_nao_limpo">
                 </div>
             </div>
             <div class="row p-2"> 
@@ -57,14 +57,14 @@
                     <input type="text" class="form-control" name="telefone" id="telefone" required>
                 </div>   
                 <div class="col-md-8">
-                    <label for="dia-semana">Para qual dia da semana que você deseja a limpeza? Informe outras opções de datas.</label>
-                    <input type="text" class="form-control" name="dia-semana" required>
+                    <label for="dia_semana">Para qual dia da semana que você deseja a limpeza? Informe outras opções de datas.</label>
+                    <input type="text" class="form-control" name="dia_semana" required>
                 </div>
             </div>
             <div class="row p-2"> 
                 <div class="col-md-4">
-                    <label for="como-descobriu">Como você ficou sabendo da Santa Faxina?</label>
-                    <input type="text" class="form-control" name="como-descobriu" required>
+                    <label for="como_soube">Como você ficou sabendo da Santa Faxina?</label>
+                    <input type="text" class="form-control" name="como_soube" required>
                 </div>  
                 <div class="col-md-8">
                     <label for="horario">Qual horário que você quer que ela chegue?</label>
