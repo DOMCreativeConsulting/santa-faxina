@@ -33,12 +33,6 @@ class User extends Model
             $_SESSION['email'] = $result[0]->email;
             $_SESSION['hierarquia'] = $result[0]->hierarquia;
 
-            $cliente['id'] = $result[0]->clienteId;
-
-            $retorno = App::get('database')->selectWhere('clientes', $cliente);
-
-            $_SESSION['sirius'] = $retorno[0]->sirius;
-
         }
 
         return $result;

@@ -11,25 +11,25 @@ class EmailController extends Controller
 
     public function enviar()
     {
-        $email = $_POST;
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
 
-        $token = Email::gerarToken(8);
-        $usuario = User::encontrar($email);
+        if($_POST['modalidade'] == 150){
+            $modalidade = "limpeza convencional de 8 horas";
+        }else{
+            $modalidade = "limpeza pós obra de 8 horas";
+        }
 
-        $dados['token'] = $token;
-        $dados['id'] = $usuario[0]->id;
+        $quantidade = $_POST['quantidade'];
+        $valor = $_POST['valor'];
 
-        User::atualizar($dados);
+        $conteudo['assunto'] = $nome." acabou de solicitar um serviço.";
 
-        $conteudo['assunto'] = 'Recuperação de Email!';
-        $conteudo['mensagem'] = 'Seu código de recuperação é : <b style="font-size:26px">'.$token.'</b>';
+        $conteudo['mensagem'] = $nome." acabou de solicitar a modalidade <b>".$modalidade."</b> com <b>"
+        .$quantidade."</b> profissionais, completando um valor final de <b>"
+        .$valor.",00 R$.</b>";
 
-        Email::enviar('aznuclear@gmail.com', $email['email'], $conteudo);
-
-        $resposta['token'] = $token;
-        $resposta['userId'] = $usuario[0]->id;;
-
-        return $this->responderJSON($resposta);
+        Email::enviar($email, 'lucasdelimamonteiro@gmail.com', $conteudo, $nome);
     }
 
 }

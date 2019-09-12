@@ -5,6 +5,7 @@ $("#passo4").hide();
 $("#cpf").mask('000.000.000-00');
 $("#cep").mask('00000-000');
 $("#telefone").mask('(00) 00000-0000');
+$('#quantidade').mask('000000');
 
 $('#passo1').submit(() => {
     event.preventDefault();
@@ -23,6 +24,28 @@ $('#passo2').submit(() => {
     $("#passo3").fadeIn(300);
 });
 
+$('#quantidade').keyup(() => {
+
+    var quantidade = $('#quantidade').val();
+    var modalidade = $('input[name=modalidade]:checked').val();
+    var valor = quantidade * modalidade;
+
+    $("#final").html(valor);
+    $("#valor").val(valor);
+
+});
+
+$("input[name=modalidade]").change(() => {
+
+    var quantidade = $('#quantidade').val();
+    var modalidade = $('input[name=modalidade]:checked').val();
+    var valor = quantidade * modalidade;
+
+    $("#final").html(valor);
+    $("#valor").val(valor);
+
+});
+
 $('#botao-passo3').click(() => {
 
     if($('#aceito').prop("checked") == true){
@@ -33,6 +56,9 @@ $('#botao-passo3').click(() => {
 
         }
         else{
+
+            dadosEmail = $('#passo3').serialize() + '&nome=' + $('#nome').val() + '&email=' + $('#email').val();
+            $.post('enviar-email', dadosEmail);
 
             $("#passo3").hide();
             $("#passo4").fadeIn(300);
@@ -46,27 +72,3 @@ $('#botao-passo3').click(() => {
     }
 
 });
-
-$('#quantidade').keyup(() => {
-
-    var quantidade = $('#quantidade').val();
-    var modalidade = $('input[name=modalidade]:checked').val();
-
-    var valor = quantidade * modalidade;
-
-    $("#final").html(valor);
-
-});
-
-$("input[name=modalidade]").change(() => {
-
-    var quantidade = $('#quantidade').val();
-    var modalidade = $('input[name=modalidade]:checked').val();
-
-    var valor = quantidade * modalidade;
-
-    $("#final").html(valor);
-
-});
-
-$('#quantidade').mask('000000');

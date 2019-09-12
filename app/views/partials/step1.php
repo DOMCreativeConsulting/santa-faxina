@@ -14,7 +14,7 @@
             <div class="row p-2">
                 <div class="col-md-4">
                     <label for="nome">Nome:</label>
-                    <input type="text" class="form-control" name="nome" placeholder="Nome completo" required>
+                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome completo" required>
                 </div>
                 <div class="col-md-4">
                     <label for="rg">RG:</label>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email" required>
                 </div>
             </div>
             <div class="row p-2">    

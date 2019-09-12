@@ -10,25 +10,25 @@ use PHPMailer\PHPMailer\Exception;
 class Email extends Model
 {
 
-    public static function enviar($remetente, $destinatario, $conteudo)
+    public static function enviar($remetente, $destinatario, $conteudo, $nome)
     {
         $mail = new PHPMailer(false);
         try {
             
-            $mail->SMTPDebug = 0;   
+            $mail->SMTPDebug = 1;   
             $mail->IsSMTP();
             
-            $mail->SMTPAuth = true;
-            $mail->Host       = 'smtp.gmail.com';  
-            $mail->Username   = 'lucasdelimamonteiro@gmail.com';                     
-            $mail->Password   = 'nuclear00123';                               
+            $mail->SMTPAuth = false;
+            $mail->Host       = 'mail.santafaxina.com.br';  
+            $mail->Username   = 'contato@santafaxina.com.br';                     
+            $mail->Password   = '';                               
             $mail->SMTPSecure = 'ssl';                                  
             $mail->Port       = 465;                                    
             
-            $mail->setFrom($remetente, 'Nuclear Framework');
-            $mail->addAddress($destinatario, 'Nuclear');     
+            $mail->setFrom($remetente, $nome);
+            $mail->addAddress($destinatario, $nome);     
             $mail->addAddress($destinatario);               
-            $mail->addReplyTo('lucasdelimamonteiro@gmail.com', 'No Reply');
+            $mail->addReplyTo($remetente, $nome);
             
             $mail->isHTML(true);                                  
             $mail->Subject = utf8_decode($conteudo['assunto']);

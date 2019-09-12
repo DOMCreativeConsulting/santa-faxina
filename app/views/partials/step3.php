@@ -55,6 +55,7 @@
                             </div>
                         </div>
                     <h3 style="text-align:center;font-weight:200;margin-top:25px;">Valor: <span id="final">0</span>,00 R$</h3>
+                    <input type="hidden" id="valor" name="valor">
                 </div>
             </div>
             <div class="row">

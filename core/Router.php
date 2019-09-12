@@ -32,7 +32,6 @@ class Router
     public function direct($uri, $requestType)
     {
         if( //ROTAS PROTEGIDAS
-            $uri == "santa-faxina/enviar-email" || 
             $uri == "santa-faxina/painel" || 
             $uri == "santa-faxina/atualizar-senha"
         ){
