@@ -9,11 +9,11 @@ footer{
 }
 </style>
 <div class="container">
-    <?php include 'app/views/partials/step1.php'; ?>
-    <?php include 'app/views/partials/step2.php'; ?>  
-    <?php include 'app/views/partials/step3.php'; ?>  
-    <?php include 'app/views/partials/step4.php'; ?>  
+    <?php include 'app/views/partials/step1juridico.php'; ?>
+    <?php include 'app/views/partials/step2juridico.php'; ?>  
+    <?php include 'app/views/partials/step3juridico.php'; ?>  
+    <?php include 'app/views/partials/step4juridico.php'; ?>  
 </div>  
 <?php include 'app/views/partials/footer.php'; ?>
-<script src="public/assets/js/cadastro.js"></script>
+<script src="public/assets/js/cadastroJuridico.js"></script>
 <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>

@@ -25,8 +25,8 @@ class ComposerStaticInit8117f282e54685a11eb326c043fbb262
     );
 
     public static $classMap = array (
-        'App\\Controllers\\ArquivosController' => __DIR__ . '/../..' . '/app/controllers/ArquivosController.php',
         'App\\Controllers\\ClientesController' => __DIR__ . '/../..' . '/app/controllers/ClientesController.php',
+        'App\\Controllers\\ClientesJuridicosController' => __DIR__ . '/../..' . '/app/controllers/ClientesJuridicosController.php',
         'App\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/controllers/Controller.php',
         'App\\Controllers\\EmailController' => __DIR__ . '/../..' . '/app/controllers/EmailController.php',
         'App\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/controllers/HomeController.php',
@@ -38,6 +38,7 @@ class ComposerStaticInit8117f282e54685a11eb326c043fbb262
         'App\\Core\\Router' => __DIR__ . '/../..' . '/core/Router.php',
         'App\\models\\Arquivos' => __DIR__ . '/../..' . '/app/models/Arquivos.php',
         'App\\models\\Cliente' => __DIR__ . '/../..' . '/app/models/Cliente.php',
+        'App\\models\\ClienteJuridico' => __DIR__ . '/../..' . '/app/models/ClienteJuridico.php',
         'App\\models\\Email' => __DIR__ . '/../..' . '/app/models/Email.php',
         'App\\models\\Model' => __DIR__ . '/../..' . '/app/models/Model.php',
         'App\\models\\User' => __DIR__ . '/../..' . '/app/models/User.php',

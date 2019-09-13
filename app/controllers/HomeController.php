@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\models\Cliente;
-use App\models\Arquivos;
+use App\models\ClienteJuridico;
 
 class HomeController
 {
@@ -13,9 +13,17 @@ class HomeController
         return view('index');
     }
 
+    public function juridica()
+    {
+        return view('juridica');
+    }
+
     public function painel()
     {
-        die('Não há uma "view" para essa rota! <br><a href="logout">Sair</a>');
+        $clientes = Cliente::get();
+        $clientesJuridicos = ClienteJuridico::get();
+
+        return view('painel', compact('clientes','clientesJuridicos'));
     }
 
 }

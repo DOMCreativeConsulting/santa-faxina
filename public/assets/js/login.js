@@ -21,8 +21,7 @@ $("#login").submit(() => {
             }, 1500)
             
         }else{
-            //window.location.replace("painel");
-            alert('você está logado!');
+            window.location.replace("painel");
         }
 
     });

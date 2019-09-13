@@ -18,7 +18,7 @@ class Model
         return $numero;
     }
 
-    public function get()
+    public static function get()
     {
         $result = App::get('database')->selectAll(static::$table);
 
