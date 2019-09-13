@@ -18,12 +18,12 @@ class Email extends Model
             $mail->SMTPDebug = 1;   
             $mail->IsSMTP();
             
-            $mail->SMTPAuth = true;
-            $mail->Host       = 'smtp.kinghost.net';  
-            $mail->Username   = 'cadastro@santafaxina.com.br';                     
-            $mail->Password   = 'sucesso19';                               
-            //$mail->SMTPSecure = 'ssl';                                  
-            $mail->Port       = 587;                                    
+            $mail->SMTPAuth = false;
+            $mail->Host       = 'mail.santafaxina.com.br';  
+            $mail->Username   = 'contato@santafaxina.com.br';                     
+            $mail->Password   = '';                               
+            $mail->SMTPSecure = 'ssl';                                  
+            $mail->Port       = 465;                                    
             
             $mail->setFrom($remetente, $nome);
             $mail->addAddress($destinatario, $nome);     

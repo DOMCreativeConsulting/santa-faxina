@@ -178,6 +178,13 @@ input, select{
         margin: 71px 0 0 60px !important;
         float:left;
     }
+    .top-bar{
+        height:80px !important;
+    }
+    .top-bar-inner{
+        display: table-cell;
+        padding-left:15px !important;
+    }
 }
 
 @media only screen and (min-width:900px){
@@ -211,8 +218,8 @@ input, select{
 }
 
 .site-logo{
-    height:90px;
-    margin:32px 0 0 210px;
+    height:80px;
+    margin:32px 0 0 200px;
 }
 
 .main-nav{
@@ -279,7 +286,7 @@ input, select{
 .header-burger{
     font-size:60px;
     text-align:right;
-    margin:50px 100px 0 0;
+    margin:50px 10px 0 0;
 }
 
 .mobile-menu{
@@ -311,4 +318,3 @@ input, select{
     list-style-type: none;
     padding:0;
 }
-
