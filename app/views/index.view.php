@@ -1,8 +1,6 @@
 <?php include 'app/views/partials/header.php'; ?>
+<?php include 'app/views/partials/siteTopo.php'; ?>
 <style>
-body{
-    background-color:#e1e1e1;
-}
 footer{
     margin-top:100px;
     position:relative !important;

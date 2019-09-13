@@ -1,7 +1,7 @@
 $("#profile-menu").hide();
+$("#mobile-menu").hide();
 
 $(document).ready(() => {
-    $("#juridico").hide();
     $("#clientes").DataTable({
         responsive:true,
         "language":{
@@ -56,13 +56,15 @@ $(document).ready(() => {
     });
 });
 
-$("#filtro").change(() => {
-    $("#residencial").toggle();
-    $("#juridico").toggle();
-});
-
 $("#show-profile-menu").click(() => {
 
     $("#profile-menu").fadeToggle(50);
 
 });
+
+$("#show-mobile-menu").click(() => {
+
+    $("#mobile-menu").toggle(200);
+
+});
+

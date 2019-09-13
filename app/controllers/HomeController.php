@@ -26,4 +26,13 @@ class HomeController
         return view('painel', compact('clientes','clientesJuridicos'));
     }
 
+    public function painelJuridico()
+    {
+        $clientes = Cliente::get();
+        $clientesJuridicos = ClienteJuridico::get();
+
+        return view('painel-juridico', compact('clientes','clientesJuridicos'));
+    }
+
+
 }
