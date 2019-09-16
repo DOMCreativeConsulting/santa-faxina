@@ -26,10 +26,10 @@
                         <div class="row">
                             <div class="col-md-5" style="margin-top:20px;">
                                 <label style="font-size:1rem !important;" for="quantidade">Quantidade de profissionais: </label>
-                                <input type="number" class="form-control col-md-2" style="float:right;margin-right:10%" name="quantidade" id="quantidade">
+                                <input type="text" value="1" class="form-control col-md-2" style="float:right;margin-right:10%;border:1px solid black !important;" name="quantidade" id="quantidade">
                             </div>
                         </div>
-                    <h3 style="text-align:center;font-weight:200;margin-top:25px;">Valor: R$ <span id="final">0</span>,00</h3>
+                    <h3 style="text-align:center;font-weight:200;margin-top:25px;">Valor: R$ <span id="final">150</span>,00</h3>
                     <input type="hidden" id="valor" name="valor">
                 </div>
             </div>

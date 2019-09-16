@@ -33,4 +33,13 @@ class EmailController extends Controller
         //financeiro@santafaxina.com.br
     }
 
+    public function enviarToken()
+    {
+        $email = $_POST['email'];
+
+        $conteudo['assunto'] = "Recuperação de senha Santa-faxina";
+
+        Email::enviar('contato@santafaxina.com.br', $email, $conteudo, $nome);
+    }
+
 }

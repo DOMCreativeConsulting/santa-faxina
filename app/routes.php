@@ -8,6 +8,7 @@ $router->get("$folder/logout", 'UsersController@logout');
 $router->get("$folder/recuperar-senha", 'UsersController@recuperarSenha');
 
 $router->post("$folder/enviar-email", 'EmailController@enviar');
+$router->post("$folder/enviar-email-token", 'EmailController@enviarToken');
 $router->post("$folder/atualizar-senha", 'UsersController@atualizarSenha');
 
 $router->get("$folder/perfil", 'UsersController@perfil');
