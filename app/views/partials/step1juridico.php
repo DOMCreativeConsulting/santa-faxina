@@ -10,6 +10,7 @@
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
+                <span class="step"></span>
             </div>
             <div class="row p-2">
                 <div class="col-md-4">

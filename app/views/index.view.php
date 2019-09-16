@@ -11,6 +11,7 @@ footer{
     <?php include 'app/views/partials/step2.php'; ?>  
     <?php include 'app/views/partials/step3.php'; ?>  
     <?php include 'app/views/partials/step4.php'; ?>  
+    <?php include 'app/views/partials/step5.php'; ?>  
 </div>  
 <?php include 'app/views/partials/footer.php'; ?>
 <script src="public/assets/js/cadastro.js"></script>

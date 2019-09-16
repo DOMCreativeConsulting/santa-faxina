@@ -15,22 +15,22 @@ class Email extends Model
         $mail = new PHPMailer(false);
         try {
             
-            $mail->SMTPDebug = 1;   
+            $mail->SMTPDebug = 1;
             $mail->IsSMTP();
             
             $mail->SMTPAuth = true;
-            $mail->Host       = 'smtp.kinghost.net';  
-            $mail->Username   = 'cadastro@santafaxina.com.br';                     
-            $mail->Password   = 'sucesso19';                               
-            //$mail->SMTPSecure = 'ssl';                                  
-            $mail->Port       = 587;                                    
+            $mail->Host       = 'smtp.kinghost.net';
+            $mail->Username   = 'cadastro@santafaxina.com.br';
+            $mail->Password   = 'sucesso19';
+            //$mail->SMTPSecure = 'ssl';
+            $mail->Port       = 587;
             
             $mail->setFrom($remetente, $nome);
-            $mail->addAddress($destinatario, $nome);     
-            $mail->addAddress($destinatario);               
+            $mail->addAddress($destinatario, $nome);
+            $mail->addAddress($destinatario);
             $mail->addReplyTo($remetente, $nome);
             
-            $mail->isHTML(true);                                  
+            $mail->isHTML(true);
             $mail->Subject = utf8_decode($conteudo['assunto']);
             $mail->Body    = utf8_decode($conteudo['mensagem']);
             $mail->AltBody = utf8_decode($conteudo['mensagem']);

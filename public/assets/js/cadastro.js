@@ -1,6 +1,7 @@
-$("#passo2").hide();
-$("#passo3").hide();
-$("#passo4").hide();
+// $("#passo2").hide();
+// $("#passo3").hide();
+// $("#passo4").hide();
+// $("#passo5").hide();
 
 $("#cpf").mask('000.000.000-00');
 $("#cnpj").mask('00.000.000/0000-00');
@@ -30,10 +31,6 @@ $('#passo1').submit(() => {
 $('#passo2').submit(() => {
     event.preventDefault();
 
-    var dados = $('#passo1').serialize() + '&' + $('#passo2').serialize();
-
-    $.post('cadastrar', dados);
-
     $("#passo2").hide();
     $("#passo3").fadeIn(300);
 });
@@ -42,7 +39,7 @@ $('#passo3').submit(() => {
     event.preventDefault();
 });
 
-$('#quantidade').keyup(() => {
+$('#quantidade').change(() => {
 
     var quantidade = $('#quantidade').val();
     var modalidade = $('input[name=modalidade]:checked').val();
@@ -68,18 +65,17 @@ $('#botao-passo3').click(() => {
 
     if($('#aceito').prop("checked") == true){
 
-        if($('#quantidade').val() == '' || $('#quantidade').val() < 1){
+        if(isCaptchaChecked()){
 
-            alert('Você deve informar a quantidade de profissionais.');
-
-        }
-        else{
-
-            dadosEmail = $('#passo3').serialize() + '&nome=' + $('#nome').val() + '&email=' + $('#email').val();
-            $.post('enviar-email', dadosEmail);
+            var dados = $('#passo1').serialize() + '&' + $('#passo2').serialize();
+            $.post('cadastrar', dados);
 
             $("#passo3").hide();
             $("#passo4").fadeIn(300);
+
+        }else{
+
+            alert("Você deve preencher o reCAPTCHA 'Não sou um robô'");
 
         }
 
@@ -88,6 +84,18 @@ $('#botao-passo3').click(() => {
         alert('Você deve ler e aceitar os termos e condições do regulamento.')
 
     }
+
+});
+
+$("#passo4").submit(() => {
+
+    event.preventDefault();
+
+    dadosEmail = $('#passo4').serialize() + '&nome=' + $('#nome').val() + '&email=' + $('#email').val();
+    $.post('enviar-email', dadosEmail);
+
+    $("#passo4").hide();
+    $("#passo5").fadeIn(300);
 
 });
 
@@ -137,4 +145,8 @@ function validaCpf(){
 
     return true;
 
+}
+
+function isCaptchaChecked() {
+    return grecaptcha && grecaptcha.getResponse().length !== 0;
 }

@@ -11,6 +11,7 @@ footer{
     <?php include 'app/views/partials/step2juridico.php'; ?>  
     <?php include 'app/views/partials/step3juridico.php'; ?>  
     <?php include 'app/views/partials/step4juridico.php'; ?>  
+    <?php include 'app/views/partials/step5juridico.php'; ?>  
 </div>  
 <?php include 'app/views/partials/footer.php'; ?>
 <script src="public/assets/js/cadastroJuridico.js"></script>

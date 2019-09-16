@@ -1,3 +1,7 @@
+<script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+<script> function onloadCallback() {}; </script>
 <form id="passo3">
     <div class="row" id="passo3" style="margin-bottom:100px;">
         <div class="col-md-10 offset-md-1 box" style="padding-bottom:100px;">
@@ -10,11 +14,12 @@
                 <span class="step"></span>
                 <span class="step-active"></span>
                 <span class="step"></span>
+                <span class="step"></span>
             </div>
             <div class="row" style="text-align:center;padding-top:3%;">
                 <div class="col-md-12">
                     <h3>Seja bem vindo a SANTA FAXINA</h3>
-                    <h5>Já recebemos seu cadastro e em breve faremos contato. Obrigado.</h5>
+                    <h5>Por favor leia o regulamento e confirme seu cadastro.</h5>
                 </div>
             </div>
             <div class="row">
@@ -44,23 +49,12 @@
                 </div>
                 <div class="col-md-10 offset-md-1" style="margin-top:20px">
                     <input class="formulario" type="checkbox" id="aceito" name="aceitar"> Li e aceito as condições deste regulamento.
-                </div>
-                <div class="col-md-10 offset-md-1" style="margin-top:20px">
-                    <input class="formulario" type="radio" name="modalidade" value="150" checked> Limpeza Convencional de 8 horas.<br>
-                    <input class="formulario" type="radio" name="modalidade" value="250"> Limpeza Pós Obra de 8 horas.<br>
-                        <div class="row">
-                            <div class="col-md-5" style="margin-top:20px;">
-                                <label style="font-size:1rem !important;" for="quantidade">Quantidade de profissionais: </label>
-                                <input type="text" class="form-control col-md-2" style="float:right;margin-right:10%" name="quantidade" id="quantidade">
-                            </div>
-                        </div>
-                    <h3 style="text-align:center;font-weight:200;margin-top:25px;">Valor: <span id="final">0</span>,00 R$</h3>
-                    <input type="hidden" id="valor" name="valor">
+                    <div class="g-recaptcha" style="margin-top:20px;" data-sitekey="6Le3tLgUAAAAAN2OZN_B9V7bul4guDRtnf1vQu31"></div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12" style="text-align:center;margin-top:25px;">
-                    <button type="button" class="btn btn-primary" id="botao-passo3">Eu Quero!</button>
+                    <button type="button" class="btn btn-primary" id="botao-passo3">Confirmar Cadastro</button>
                 </div>
             </div>
         </div>

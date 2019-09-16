@@ -10,6 +10,7 @@
                 <span class="step-active"></span>
                 <span class="step"></span>
                 <span class="step"></span>
+                <span class="step"></span>
             </div>
             <div class="row p-2">
                 <div class="col-md-4">
@@ -40,7 +41,7 @@
             <div class="row p-2">
                 <div class="col-md-2">
                     <label for="pecas">Nº de peças:</label>
-                    <input type="number" class="form-control" name="pecas" placeholder="0">
+                    <input type="number" class="form-control" name="pecas" placeholder="0" required>
                 </div>
                 <div class="col-md-2">
                     <label for="area">M²:</label>

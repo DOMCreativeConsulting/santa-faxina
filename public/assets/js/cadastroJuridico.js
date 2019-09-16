@@ -1,6 +1,7 @@
-$("#passo2juridico").hide();
-$("#passo3juridico").hide();
-$("#passo4juridico").hide();
+// $("#passo2juridico").hide();
+// $("#passo3juridico").hide();
+// $("#passo4juridico").hide();
+// $("#passo5juridico").hide();
 
 $("#cpf").mask('000.000.000-00');
 $("#cnpj").mask('00.000.000/0000-00');
@@ -25,10 +26,6 @@ $('#passo1juridico').submit(() => {
 
 $('#passo2juridico').submit(() => {
     event.preventDefault();
-
-    var dados = $('#passo1juridico').serialize() + '&' + $('#passo2juridico').serialize();
-
-    $.post('cadastrar-juridico', dados);
 
     $("#passo2juridico").hide();
     $("#passo3juridico").fadeIn(300);
@@ -64,18 +61,17 @@ $('#botao-passo3').click(() => {
 
     if($('#aceito').prop("checked") == true){
 
-        if($('#quantidade').val() == '' || $('#quantidade').val() < 1){
+        if(isCaptchaChecked()){
 
-            alert('Você deve informar a quantidade de profissionais.');
-
-        }
-        else{
-
-            dadosEmail = $('#passo3juridico').serialize() + '&nome=' + $('#nome').val() + '&email=' + $('#email').val();
-            $.post('enviar-email', dadosEmail);
+            var dados = $('#passo1juridico').serialize() + '&' + $('#passo2juridico').serialize();
+            $.post('cadastrar-juridico', dados);
 
             $("#passo3juridico").hide();
             $("#passo4juridico").fadeIn(300);
+
+        }else{
+
+            alert("Você deve preencher o reCAPTCHA 'Não sou um robô'");
 
         }
 
@@ -84,6 +80,18 @@ $('#botao-passo3').click(() => {
         alert('Você deve ler e aceitar os termos e condições do regulamento.')
 
     }
+
+});
+
+$("#passo4juridico").submit(() => {
+
+    event.preventDefault();
+
+    dadosEmail = $('#passo4juridico').serialize() + '&nome=' + $('#nome').val() + '&email=' + $('#email').val();
+    $.post('enviar-email', dadosEmail);
+
+    $("#passo4juridico").hide();
+    $("#passo5juridico").fadeIn(300);
 
 });
 
@@ -186,4 +194,8 @@ function validaCpf(){
 
     return true;
 
+}
+
+function isCaptchaChecked() {
+    return grecaptcha && grecaptcha.getResponse().length !== 0;
 }
