@@ -11,7 +11,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-3">
-                    <img src="public/assets/img/logo.png" class="site-logo" alt="Santa Fainx">
+                    <a href="http://santafaxina.com.br/"><img src="public/assets/img/logo.png" class="site-logo" alt="Santa Fainx"></a>
                 </div>
                 <div class="col-xs-9 main-menu">
                     <div class="header-burger">

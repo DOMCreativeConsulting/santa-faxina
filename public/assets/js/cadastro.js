@@ -9,9 +9,22 @@ $("#telefone").mask('(00) 00000-0000');
 $('#quantidade').mask('000000');
 
 $('#passo1').submit(() => {
+
     event.preventDefault();
-    $("#passo1").hide();
-    $("#passo2").fadeIn(300);
+
+    var validacao = validaCpf();
+
+    if(validacao == false){
+
+        alert("Por favor digite um CPF válido!");
+
+    }else{
+
+        $("#passo1").hide();
+        $("#passo2").fadeIn(300);
+
+    }
+
 });
 
 $('#passo2').submit(() => {
@@ -77,3 +90,51 @@ $('#botao-passo3').click(() => {
     }
 
 });
+
+function validaCpf(){
+
+    var cpf = $("#cpf").val();
+
+    strCPF = cpf.replace('.', '');
+    var strCPF1 = strCPF.replace('.', '');
+    var strCPF2 = strCPF1.replace('-', '');
+
+    var Soma;
+    var Resto;
+    Soma = 0;
+
+    if (
+        strCPF2 == "00000000000" ||
+        strCPF2 == "11111111111" ||
+        strCPF2 == "22222222222" ||
+        strCPF2 == "33333333333" ||
+        strCPF2 == "44444444444" ||
+        strCPF2 == "55555555555" ||
+        strCPF2 == "66666666666" ||
+        strCPF2 == "77777777777" ||
+        strCPF2 == "88888888888" ||
+        strCPF2 == "99999999999"
+    ){
+        return false;
+    }
+
+    for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF2.substring(i-1, i)) * (11 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(strCPF2.substring(9, 10)) ){
+       return false;
+    }
+
+    Soma = 0;
+    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF2.substring(i-1, i)) * (12 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(strCPF2.substring(10, 11) ) ) {
+        return false;
+    }
+
+    return true;
+
+}
