@@ -5,6 +5,7 @@
                 Cadastro de Cliente Residencial
                 <small><br>Passo 1</small>
             </h1>
+            <button class="btn btn-warning" type="button" id="send-request">Enviar Request</button>
             <div class="multi-step">
                 <span class="step-active"></span>
                 <span class="step"></span>

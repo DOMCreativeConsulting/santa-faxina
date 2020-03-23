@@ -6,9 +6,9 @@ if(!$producao){
 
     return [
         'database' => [
-            'name' => 'santafaxina',
+            'name' => 'santafaxina02',
             'username' => 'root',
-            'password' => '',
+            'password' => '3035air01',
             'connection' => 'mysql:host=127.0.0.1',
             'options' => [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION

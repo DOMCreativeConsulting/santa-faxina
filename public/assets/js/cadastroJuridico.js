@@ -64,7 +64,26 @@ $('#botao-passo3').click(() => {
         if(isCaptchaChecked()){
 
             var dados = $('#passo1juridico').serialize() + '&' + $('#passo2juridico').serialize();
+            dados['observacao'] = dados;
+
             $.post('cadastrar-juridico', dados);
+
+            $.ajax
+            ({
+                type: "POST",
+                url: "http://srvapp-01.eastus2.cloudapp.azure.com:9020/entidade",
+                dataType: 'json',
+                async: false,
+                data: dados,
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    'Content-Type': 'application/json',
+                    "Authorization": "Basic aW50ZWdyYWNhbzo0MDc4b3A2OQ=="
+                },
+                success: function (){
+                    console.log(response); 
+                }
+            });
 
             $("#passo3juridico").hide();
             $("#passo4juridico").fadeIn(300);

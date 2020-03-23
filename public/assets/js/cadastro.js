@@ -68,7 +68,26 @@ $('#botao-passo3').click(() => {
         if(isCaptchaChecked()){
 
             var dados = $('#passo1').serialize() + '&' + $('#passo2').serialize();
+            dados['observacao'] = dados;
+
             $.post('cadastrar', dados);
+
+            $.ajax
+            ({
+                type: "POST",
+                url: "http://srvapp-01.eastus2.cloudapp.azure.com:9020/entidade",
+                dataType: 'json',
+                async: false,
+                data: dados,
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    'Content-Type': 'application/json',
+                    "Authorization": "Basic aW50ZWdyYWNhbzo0MDc4b3A2OQ=="
+                },
+                success: function (){
+                    console.log(response); 
+                }
+            });
 
             $("#passo3").hide();
             $("#passo4").fadeIn(300);
@@ -150,3 +169,42 @@ function validaCpf(){
 function isCaptchaChecked() {
     return grecaptcha && grecaptcha.getResponse().length !== 0;
 }
+
+// PARA FINS DE TESTES
+
+$("#send-request").click(() => {
+
+    let dados = {
+        Nome: "TESTE DE ENTIDADE",
+        RG: "99999999999",
+        Email: "",
+        CPF: "99999999999999",
+        Endereco: "RUA CENTRAL",
+        Numero: "100",
+        Complemento: "",
+        Bairro: "CENTRO",
+        CEP: "92500000",
+        Cidade: "GUAIBA",
+        UF: "RS",
+        Telefone: "",
+        Observacao: "TESTES DE OBS"
+    }
+    
+    $.ajax
+    ({
+        type: "POST",
+        url: "http://srvapp-01.eastus2.cloudapp.azure.com:9020/entidade",
+        dataType: 'json',
+        async: false,
+        data: dados,
+        headers: {
+            "X-Requested-With": "XMLHttpRequest",
+            'Content-Type': 'application/json',
+            "Authorization": "Basic " + btoa('integracao' + ":" + '4078op69')
+        },
+        success: function (){
+            console.log(response); 
+        }
+    });
+
+})
