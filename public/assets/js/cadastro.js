@@ -15,11 +15,11 @@ $('#passo1').submit(() => {
 
     var validacao = validaCpf();
 
-    if(validacao == false){
+    if (validacao == false) {
 
         alert("Por favor digite um CPF válido!");
 
-    }else{
+    } else {
 
         $("#passo1").hide();
         $("#passo2").fadeIn(300);
@@ -63,9 +63,9 @@ $("input[name=modalidade]").change(() => {
 
 $('#botao-passo3').click(() => {
 
-    if($('#aceito').prop("checked") == true){
+    if ($('#aceito').prop("checked") == true) {
 
-        if(isCaptchaChecked()){
+        if (isCaptchaChecked()) {
 
             var dados = $('#passo1').serialize() + '&' + $('#passo2').serialize();
             dados['observacao'] = dados;
@@ -73,32 +73,32 @@ $('#botao-passo3').click(() => {
             $.post('cadastrar', dados);
 
             $.ajax
-            ({
-                type: "POST",
-                url: "http://srvapp-01.eastus2.cloudapp.azure.com:9020/entidade",
-                dataType: 'json',
-                async: false,
-                data: dados,
-                headers: {
-                    "X-Requested-With": "XMLHttpRequest",
-                    'Content-Type': 'application/json',
-                    "Authorization": "Basic aW50ZWdyYWNhbzo0MDc4b3A2OQ=="
-                },
-                success: function (){
-                    console.log(response); 
-                }
-            });
+                ({
+                    type: "POST",
+                    url: "http://srvapp-01.eastus2.cloudapp.azure.com:9020/entidade",
+                    dataType: 'json',
+                    async: false,
+                    data: dados,
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest",
+                        'Content-Type': 'application/json',
+                        "Authorization": "Basic aW50ZWdyYWNhbzo0MDc4b3A2OQ=="
+                    },
+                    success: function () {
+                        console.log(response);
+                    }
+                });
 
             $("#passo3").hide();
             $("#passo4").fadeIn(300);
 
-        }else{
+        } else {
 
             alert("Você deve preencher o reCAPTCHA 'Não sou um robô'");
 
         }
 
-    }else{
+    } else {
 
         alert('Você deve ler e aceitar os termos e condições do regulamento.')
 
@@ -118,7 +118,7 @@ $("#passo4").submit(() => {
 
 });
 
-function validaCpf(){
+function validaCpf() {
 
     var cpf = $("#cpf").val();
 
@@ -141,24 +141,24 @@ function validaCpf(){
         strCPF2 == "77777777777" ||
         strCPF2 == "88888888888" ||
         strCPF2 == "99999999999"
-    ){
+    ) {
         return false;
     }
 
-    for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF2.substring(i-1, i)) * (11 - i);
+    for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF2.substring(i - 1, i)) * (11 - i);
     Resto = (Soma * 10) % 11;
 
-    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-    if (Resto != parseInt(strCPF2.substring(9, 10)) ){
-       return false;
+    if ((Resto == 10) || (Resto == 11)) Resto = 0;
+    if (Resto != parseInt(strCPF2.substring(9, 10))) {
+        return false;
     }
 
     Soma = 0;
-    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF2.substring(i-1, i)) * (12 - i);
+    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF2.substring(i - 1, i)) * (12 - i);
     Resto = (Soma * 10) % 11;
 
-    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-    if (Resto != parseInt(strCPF2.substring(10, 11) ) ) {
+    if ((Resto == 10) || (Resto == 11)) Resto = 0;
+    if (Resto != parseInt(strCPF2.substring(10, 11))) {
         return false;
     }
 
@@ -189,22 +189,22 @@ $("#send-request").click(() => {
         Telefone: "",
         Observacao: "TESTES DE OBS"
     }
-    
+
     $.ajax
-    ({
-        type: "POST",
-        url: "http://srvapp-01.eastus2.cloudapp.azure.com:9020/entidade",
-        dataType: 'json',
-        async: false,
-        data: dados,
-        headers: {
-            "X-Requested-With": "XMLHttpRequest",
-            'Content-Type': 'application/json',
-            "Authorization": "Basic " + btoa('integracao' + ":" + '4078op69')
-        },
-        success: function (){
-            console.log(response); 
-        }
-    });
+        ({
+            type: "POST",
+            url: "http://srvapp-01.eastus2.cloudapp.azure.com:9020/entidade",
+            dataType: 'json',
+            async: false,
+            data: dados,
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+                'Content-Type': 'application/json',
+                "Authorization": "Basic " + btoa('integracao' + ":" + '4078op69')
+            },
+            success: function () {
+                console.log(response);
+            }
+        });
 
 })
