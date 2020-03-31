@@ -11,6 +11,7 @@ return array(
     'App\\Controllers\\Controller' => $baseDir . '/app/controllers/Controller.php',
     'App\\Controllers\\EmailController' => $baseDir . '/app/controllers/EmailController.php',
     'App\\Controllers\\HomeController' => $baseDir . '/app/controllers/HomeController.php',
+    'App\\Controllers\\TestController' => $baseDir . '/app/controllers/TestController.php',
     'App\\Controllers\\UsersController' => $baseDir . '/app/controllers/UsersController.php',
     'App\\Core\\App' => $baseDir . '/core/App.php',
     'App\\Core\\Database\\Connection' => $baseDir . '/core/database/Connection.php',

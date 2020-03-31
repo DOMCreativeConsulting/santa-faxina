@@ -60,34 +60,16 @@ $("input[name=modalidade]").change(() => {
 $('#botao-passo3').click(() => {
 
     if($('#aceito').prop("checked") == true){
-
         if(isCaptchaChecked()){
+            var data = $('#passo1juridico').serialize() + '&' + $('#passo2juridico').serialize();
 
-            var dados = $('#passo1juridico').serialize() + '&' + $('#passo2juridico').serialize();
-            dados['observacao'] = dados;
-
-            $.post('cadastrar-juridico', dados);
-
-            $.ajax
-            ({
-                type: "POST",
-                url: "http://srvapp-01.eastus2.cloudapp.azure.com:9020/entidade",
-                dataType: 'json',
-                async: false,
-                data: dados,
-                headers: {
-                    "X-Requested-With": "XMLHttpRequest",
-                    'Content-Type': 'application/json',
-                    "Authorization": "Basic aW50ZWdyYWNhbzo0MDc4b3A2OQ=="
-                },
-                success: function (){
-                    console.log(response); 
-                }
-            });
-
-            $("#passo3juridico").hide();
-            $("#passo4juridico").fadeIn(300);
-
+            $.post('cadastrar-juridico', data);
+            $.post('entidade', data)
+            .done(e =>  {
+                $("#passo3juridico").hide();
+                $("#passo4juridico").fadeIn(300);
+            })
+            .fail(e => alert("Não foi"));            
         }else{
 
             alert("Você deve preencher o reCAPTCHA 'Não sou um robô'");
@@ -115,7 +97,7 @@ $("#passo4juridico").submit(() => {
 });
 
 function validarCnpj() {
- 
+    
     var cnpjInput = $("#cnpj").val();
     cnpj = cnpjInput.replace(/[^\d]+/g,'');
  
@@ -168,7 +150,6 @@ function validarCnpj() {
 }
 
 function validaCpf(){
-
     var cpf = $("#cpf").val();
 
     strCPF = cpf.replace('.', '');

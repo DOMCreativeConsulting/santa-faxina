@@ -84,6 +84,10 @@
             </div>
             <div class="row pb-4 p-2"> 
                 <div class="col-md-4">
+                    <label for="numero">Numero:</label>
+                    <input type="text" class="form-control" name="numero">
+                </div>
+                <div class="col-md-4">
                     <label for="referencia">Ponto de Referência:</label>
                     <input type="text" class="form-control" name="referencia">
                 </div>
