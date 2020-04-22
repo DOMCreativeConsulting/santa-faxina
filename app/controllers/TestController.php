@@ -6,7 +6,7 @@ class TestController extends Controller
 {
     public function index()
     {
-        $url = 'http://srvapp-01.eastus2.cloudapp.azure.com:9020/entidade';
+        $url = 'srvappsf01.azurewebsites.net/isapi.dll/entidade';
         $data = $_POST;
         $userName = 'integracao';
         $password = '4078op69';

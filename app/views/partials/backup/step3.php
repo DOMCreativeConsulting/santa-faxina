@@ -1,3 +1,4 @@
+<script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 <script> function onloadCallback() {}; </script>
@@ -48,7 +49,7 @@
                 </div>
                 <div class="col-md-10 offset-md-1" style="margin-top:20px">
                     <input class="formulario" type="checkbox" id="aceito" name="aceitar"> Li e aceito as condições deste regulamento.
-                    <div class="g-recaptcha" style="margin-top:20px;" data-sitekey="6Lch4-kUAAAAAIhnpPKJ23jv1MuZ6EV13FxTstMW"></div>
+                    <div class="g-recaptcha" style="margin-top:20px;" data-sitekey="6LfivLgUAAAAAFJfJDX9lEouy8s8Ka9F06Joq75n"></div>
                 </div>
             </div>
             <div class="row">

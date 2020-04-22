@@ -1,11 +1,11 @@
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 <script> function onloadCallback() {}; </script>
-<form id="passo3">
+<form id="passo3juridico">
     <div class="row" id="passo3" style="margin-bottom:100px;">
         <div class="col-md-10 offset-md-1 box" style="padding-bottom:100px;">
             <h1 class="title">
-                Cadastro de Cliente Residencial
+                Cadastro de Cliente Jurídico
                 <small><br>Passo 3</small>
             </h1>
             <div class="multi-step">

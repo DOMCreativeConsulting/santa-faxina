@@ -9,33 +9,34 @@ $("#cep").mask('00000-000');
 $("#telefone").mask('(00) 00000-0000');
 $('#quantidade').mask('000000');
 
-var form = [];
-
 $('#passo1').submit(() => {
+
     event.preventDefault();
+
     var validacao = validaCpf();
 
-    if (validacao == false) {
+    if(validacao == false){
+
         alert("Por favor digite um CPF válido!");
-    } else {
-        form = $("#passo1").serialize();
+
+    }else{
+
         $("#passo1").hide();
         $("#passo2").fadeIn(300);
+
     }
 
 });
 
 $('#passo2').submit(() => {
     event.preventDefault();
-    form += "&"+$("#passo2").serialize();
+
     $("#passo2").hide();
     $("#passo3").fadeIn(300);
 });
 
 $('#passo3').submit(() => {
     event.preventDefault();
-    form += "&"+$("#passo3").serialize();
-    form += "&Observacao="+form;
 });
 
 $('#quantidade').change(() => {
@@ -50,6 +51,7 @@ $('#quantidade').change(() => {
 });
 
 $("input[name=modalidade]").change(() => {
+
     var quantidade = $('#quantidade').val();
     var modalidade = $('input[name=modalidade]:checked').val();
     var valor = quantidade * modalidade;
@@ -59,43 +61,64 @@ $("input[name=modalidade]").change(() => {
 
 });
 
-
 $('#botao-passo3').click(() => {
-    if ($('#aceito').prop("checked") == true) {
-        if (isCaptchaChecked()) {
-            $("input").val(function(i,val) {
-                return val.toUpperCase();
-            });
-            var data = $('#passo1').serialize() + '&' + $('#passo2').serialize();
-            console.log(data);
-            // $.post('cadastrar', data);
-            // $.post('entidade', data)
-            // .done(e =>  {
-            //     $("#passo3").hide();
-            //     $("#passo4").fadeIn(300);
-            // })
-            // .fail(e => alert("Não foi"));
 
-        } else {
+    if($('#aceito').prop("checked") == true){
+
+        if(isCaptchaChecked()){
+
+            var dados = $('#passo1').serialize() + '&' + $('#passo2').serialize();
+            dados['observacao'] = dados;
+
+            $.post('cadastrar', dados);
+
+            $.ajax
+            ({
+                type: "POST",
+                url: "http://srvapp-01.eastus2.cloudapp.azure.com:9020/entidade",
+                dataType: 'json',
+                async: false,
+                data: dados,
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    'Content-Type': 'application/json',
+                    "Authorization": "Basic " + btoa('integracao' + ":" + '4078op69')
+                },
+                success: function (){
+                    console.log(response); 
+                }
+            });
+
+            $("#passo3").hide();
+            $("#passo4").fadeIn(300);
+
+        }else{
+
             alert("Você deve preencher o reCAPTCHA 'Não sou um robô'");
+
         }
-    } else {
+
+    }else{
+
         alert('Você deve ler e aceitar os termos e condições do regulamento.')
+
     }
+
 });
 
 $("#passo4").submit(() => {
+
     event.preventDefault();
+
     dadosEmail = $('#passo4').serialize() + '&nome=' + $('#nome').val() + '&email=' + $('#email').val();
     $.post('enviar-email', dadosEmail);
-
 
     $("#passo4").hide();
     $("#passo5").fadeIn(300);
 
 });
 
-function validaCpf() {
+function validaCpf(){
 
     var cpf = $("#cpf").val();
 
@@ -118,37 +141,31 @@ function validaCpf() {
         strCPF2 == "77777777777" ||
         strCPF2 == "88888888888" ||
         strCPF2 == "99999999999"
-    ) {
+    ){
         return false;
     }
 
-    for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF2.substring(i - 1, i)) * (11 - i);
+    for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF2.substring(i-1, i)) * (11 - i);
     Resto = (Soma * 10) % 11;
 
-    if ((Resto == 10) || (Resto == 11)) Resto = 0;
-    if (Resto != parseInt(strCPF2.substring(9, 10))) {
-        return false;
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(strCPF2.substring(9, 10)) ){
+       return false;
     }
 
     Soma = 0;
-    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF2.substring(i - 1, i)) * (12 - i);
+    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF2.substring(i-1, i)) * (12 - i);
     Resto = (Soma * 10) % 11;
 
-    if ((Resto == 10) || (Resto == 11)) Resto = 0;
-    if (Resto != parseInt(strCPF2.substring(10, 11))) {
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(strCPF2.substring(10, 11) ) ) {
         return false;
     }
 
     return true;
+
 }
 
 function isCaptchaChecked() {
     return grecaptcha && grecaptcha.getResponse().length !== 0;
 }
-
-// PARA FINS DE TESTES
-$("#send-request").click(() => {
-    $.post("entidade",post)
-    .done(e => console.log("AAA"))
-    .fail(e => console.log(e))
-});
