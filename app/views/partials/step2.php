@@ -66,18 +66,18 @@
                 <div class="col-md-4">
                     <label for="como_soube">Como você ficou sabendo da Santa Faxina?</label>
                     <input type="text" class="form-control" name="como_soube" required>
-                </div>  
+                </div>
                 <div class="col-md-8">
                     <label for="horario">Qual horário que você quer que ela chegue?</label>
                     <input type="text" class="form-control" name="horario" placeholder="Lembramos que a diária é de 8 horas/dia, com 1 hora de almoço" required>
                 </div>   
             </div>
-            <div class="row p-2">
+            <!-- <div class="row p-2">
                 <div class="col-md-12">
                     <label for="observacao">Nos diga se tem algum foco especial para a limpeza ou algo que você julgue importante comentar conosco:</label>
                     <input type="text" class="form-control" name="observacao" placeholder="Possui animais de estimação? Quais? A limpeza é pós obra?">
                 </div>
-            </div>
+            </div> -->
             <div class="row pb-4 p-2"> 
                 <div class="col-md-8">
                     <label for="caracteristica">Alguma característica da diarista que você gostaria de solicitar?</label>

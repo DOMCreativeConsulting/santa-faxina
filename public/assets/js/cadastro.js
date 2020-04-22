@@ -18,6 +18,9 @@ $('#passo1').submit(() => {
     if (validacao == false) {
         alert("Por favor digite um CPF válido!");
     } else {
+        $("#passo1 input").val(function(i,val) {
+            return val.toUpperCase();
+        });
         form = $("#passo1").serialize();
         $("#passo1").hide();
         $("#passo2").fadeIn(300);
@@ -27,6 +30,9 @@ $('#passo1').submit(() => {
 
 $('#passo2').submit(() => {
     event.preventDefault();
+    $("#passo2 input").val(function(i,val) {
+        return val.toUpperCase();
+    });
     form += "&"+$("#passo2").serialize();
     $("#passo2").hide();
     $("#passo3").fadeIn(300);
@@ -35,7 +41,6 @@ $('#passo2').submit(() => {
 $('#passo3').submit(() => {
     event.preventDefault();
     form += "&"+$("#passo3").serialize();
-    form += "&Observacao="+form;
 });
 
 $('#quantidade').change(() => {
@@ -66,15 +71,16 @@ $('#botao-passo3').click(() => {
             $("input").val(function(i,val) {
                 return val.toUpperCase();
             });
-            var data = $('#passo1').serialize() + '&' + $('#passo2').serialize();
-            console.log(data);
-            // $.post('cadastrar', data);
-            // $.post('entidade', data)
-            // .done(e =>  {
-            //     $("#passo3").hide();
-            //     $("#passo4").fadeIn(300);
-            // })
-            // .fail(e => alert("Não foi"));
+            const obs = `&observacao=${form}`;
+            const data = form+obs;
+                        
+            $.post('cadastrar', data);
+            $.post('entidade', data)
+            .done(e =>  {
+                $("#passo3").hide();
+                $("#passo4").fadeIn(300);
+            })
+            .fail(e => alert("Não foi"));
 
         } else {
             alert("Você deve preencher o reCAPTCHA 'Não sou um robô'");

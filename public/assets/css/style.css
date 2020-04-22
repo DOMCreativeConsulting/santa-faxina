@@ -9,6 +9,7 @@
 body{
     overflow-x:hidden;
 }
+input { text-transform: uppercase; }
 
 .title{
     color:#555;
