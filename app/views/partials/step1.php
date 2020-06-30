@@ -2,7 +2,7 @@
     <div class="row" id="passo1">
         <div class="col-md-10 offset-md-1 box">
             <h1 class="title">
-                Cadastro de Cliente Residencial
+                Cadastro Residencial
                 <small><br>Passo 1</small>
             </h1>
             <div class="multi-step">
@@ -36,7 +36,7 @@
                     <input type="text" class="form-control" name="profissao" >
                 </div>
                 <div class="col-md-4">
-                    <label for="email">Email:</label>
+                    <label for="email">email:</label>
                     <input type="email" class="form-control" id="email" name="email" required>
                 </div>
             </div>
@@ -56,7 +56,7 @@
             </div>
             <div class="row pb-4 p-2"> 
                 <div class="col-md-4">
-                    <label for="numero">Numero:</label>
+                    <label for="numero">Número:</label>
                     <input type="text" class="form-control" name="numero" required>
                 </div>
                 <div class="col-md-4">
@@ -68,6 +68,12 @@
                     <input type="text" class="form-control" name="referencia">
                 </div>
             </div>
+            <div class="row pb-4 p2">
+                <div class="col-md-4">
+                <label for="complemento">Complemento:</label>
+                    <input type="text" class="form-control" name="complemento">
+                </div>
+            </div>
             <div class="row pb-4 p-2">
                 <div class="col-md-4">
                     <button type="submit" id="botao-passo1" class="btn btn-primary" style="margin-top:32px;width:100%">Próximo</button>
@@ -75,4 +81,4 @@
             </div>
         </div>
     </div>
-</form>
+</form> 

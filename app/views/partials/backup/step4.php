@@ -2,7 +2,7 @@
     <div class="row" id="passo4" style="margin-bottom:100px;">
         <div class="col-md-10 offset-md-1 box" style="padding-bottom:100px;">
             <h1 class="title">
-                Cadastro de Cliente Residencial
+                Cadastro Residencial
                 <small><br>Passo 4</small>
             </h1>
             <div class="multi-step">

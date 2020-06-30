@@ -19,7 +19,7 @@ class ClientesController extends Controller
 
     public function index()
     {
-        $url = 'srvappsf01.azurewebsites.net/isapi.dll/entidade';
+        $url = 'srvappsf01.azurewebsites.net/integracao.dll/entidade';
         $data = $_POST;
         $userName = 'integracao';
         $password = '4078op69';

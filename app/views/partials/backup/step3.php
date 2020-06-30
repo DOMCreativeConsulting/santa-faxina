@@ -1,4 +1,4 @@
-<script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+<script src="https://www.google.com/recaptcha/api.js?render='6Lch4-kUAAAAAIhnpPKJ23jv1MuZ6EV13FxTstMW'"></script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 <script> function onloadCallback() {}; </script>
@@ -6,7 +6,7 @@
     <div class="row" id="passo3" style="margin-bottom:100px;">
         <div class="col-md-10 offset-md-1 box" style="padding-bottom:100px;">
             <h1 class="title">
-                Cadastro de Cliente Residencial
+                Cadastro Residencial
                 <small><br>Passo 3</small>
             </h1>
             <div class="multi-step">
@@ -27,7 +27,7 @@
                 <h3>Regulamento de Contratação de Agenciamento de Diaristas – Santa faxina Serviços e Cuidados Residenciais Ltda</h3><br><br>
                 O presente regulamento tem por objeto a prestação de serviços de agenciamento de diaristas autônomas especializadas.<br><br>
                 A realização dos serviços ocorrerá conforme necessidade mencionada pelo cliente a cada solicitação, com dia, hora e quantidade de diaristas solicitadas.<br><br>
-                A Santa Faxina é mera agenciadora e mandatária da diarista, não respondendo, cível e criminalmente, por quaisquer danos causados aos clientes ou a terceiros.<br><br>
+                A Santa Faxina é agenciadora e mandatária da diarista, não respondendo, cível e criminalmente, por quaisquer danos causados aos clientes ou a terceiros.<br><br>
                 O cliente é responsável pelas informações fornecidas, bem como pela realização e atualização de seu cadastro junto a Santa Faxina.<br><br>
                 Ao habilitar-se para contratação, o cliente fica sujeito integralmente às condições deste Regulamento.<br><br>
 
@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-md-10 offset-md-1" style="margin-top:20px">
                     <input class="formulario" type="checkbox" id="aceito" name="aceitar"> Li e aceito as condições deste regulamento.
-                    <div class="g-recaptcha" style="margin-top:20px;" data-sitekey="6LfivLgUAAAAAFJfJDX9lEouy8s8Ka9F06Joq75n"></div>
+                    <div class="g-recaptcha" style="margin-top:20px;" data-sitekey="6Lch4-kUAAAAAIhnpPKJ23jv1MuZ6EV13FxTstMW"></div>
                 </div>
             </div>
             <div class="row">

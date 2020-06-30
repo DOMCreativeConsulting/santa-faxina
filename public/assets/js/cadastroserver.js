@@ -8,6 +8,7 @@ $("#cnpj").mask('00.000.000/0000-00');
 $("#cep").mask('00000-000');
 $("#telefone").mask('(00) 00000-0000');
 $('#quantidade').mask('000000');
+var form = [];
 
 $('#passo1').submit(() => {
 
@@ -20,7 +21,10 @@ $('#passo1').submit(() => {
         alert("Por favor digite um CPF válido!");
 
     }else{
-
+        $("#passo1 input").val(function(i,val) {
+            return val.toUpperCase();
+        });
+        form = $("#passo1").serialize();
         $("#passo1").hide();
         $("#passo2").fadeIn(300);
 
@@ -30,6 +34,10 @@ $('#passo1').submit(() => {
 
 $('#passo2').submit(() => {
     event.preventDefault();
+    $("#passo2 input").val(function(i,val) {
+        return val.toUpperCase();
+    });
+    form += "&"+$("#passo2").serialize();
 
     $("#passo2").hide();
     $("#passo3").fadeIn(300);
@@ -37,6 +45,8 @@ $('#passo2').submit(() => {
 
 $('#passo3').submit(() => {
     event.preventDefault();
+    form += "&"+$("#passo3").serialize();
+
 });
 
 $('#quantidade').change(() => {
@@ -67,30 +77,20 @@ $('#botao-passo3').click(() => {
 
         if(isCaptchaChecked()){
 
-            var dados = $('#passo1').serialize() + '&' + $('#passo2').serialize();
-            dados['observacao'] = dados;
-
-            $.post('cadastrar', dados);
-
-            $.ajax
-            ({
-                type: "POST",
-                url: "http://srvapp-01.eastus2.cloudapp.azure.com:9020/entidade",
-                dataType: 'json',
-                async: false,
-                data: dados,
-                headers: {
-                    "X-Requested-With": "XMLHttpRequest",
-                    'Content-Type': 'application/json',
-                    "Authorization": "Basic " + btoa('integracao' + ":" + '4078op69')
-                },
-                success: function (){
-                    console.log(response); 
-                }
+            $("input").val(function(i,val) {
+                return val.toUpperCase();
             });
+            const replaced = form.replace(/&/g, String.fromCharCode(13));
+            const obs = `&observacao=${replaced}`;
+            const data = form+obs;
 
-            $("#passo3").hide();
-            $("#passo4").fadeIn(300);
+            $.post('cadastrar', data);
+            $.post('entidade', data)
+            .done(e =>  {
+                $("#passo3").hide();
+                $("#passo4").fadeIn(300);
+            })
+            .fail(e => alert("Não foi"));
 
         }else{
 

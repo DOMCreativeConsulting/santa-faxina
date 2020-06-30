@@ -2,7 +2,7 @@
     <div class="row" id="passo2">
         <div class="col-md-10 offset-md-1 box">
             <h1 class="title">
-                Cadastro de Cliente Jurídico
+                Cadastro Empresarial
                 <small><br>Passo 2</small>
             </h1>
             <div class="multi-step">

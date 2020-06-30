@@ -2,7 +2,7 @@
     <div class="row" style="margin-bottom:100px;">
         <div class="col-md-10 offset-md-1 box" style="padding-bottom:100px;">
             <h1 class="title">
-                Cadastro de Cliente Jurídico
+                Cadastro Empresarial
                 <small><br>Passo 5</small>
             </h1>
             <div class="multi-step">

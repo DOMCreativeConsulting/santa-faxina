@@ -71,9 +71,10 @@ $('#botao-passo3').click(() => {
             $("input").val(function(i,val) {
                 return val.toUpperCase();
             });
-            const obs = `&observacao=${form}`;
+            const replaced = form.replace(/&/g, String.fromCharCode(13));
+            const obs = `&observacao=${replaced}`;
             const data = form+obs;
-                        
+            
             $.post('cadastrar', data);
             $.post('entidade', data)
             .done(e =>  {
