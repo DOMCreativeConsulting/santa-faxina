@@ -60,8 +60,11 @@
                     <input type="text" class="form-control" name="numero" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="cidade">Cidade:</label>
-                    <input type="text" class="form-control" name="cidade" required>
+                    <label for="cidades">Cidades:</label>
+                    <input list="cidades" class="form-control" autocomplete=false>
+                    <datalist id="cidades">
+                        <option value="Internet Explorer">
+                    </datalist> 
                 </div>
                 <div class="col-md-4">
                     <label for="referencia">Ponto de Referência:</label>

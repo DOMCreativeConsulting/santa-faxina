@@ -11,6 +11,22 @@ $('#quantidade').mask('000000');
 
 var form = [];
 
+$('document').ready(() => {
+    $.get('cidades')
+        .done( data => {
+            const cidades = JSON.parse(data);
+            const datalist = document.querySelector("#cidades");
+
+            cidades.map(c => {
+                const cidadeOption = document.createElement('option');
+                cidadeOption.appendChild( document.createTextNode(c.nome) );
+                cidadeOption.value = c.codigo; 
+                datalist.appendChild(cidadeOption)
+            });
+        })
+        .fail( error => console.error(error))
+})
+
 $('#passo1').submit(() => {
     event.preventDefault();
     var validacao = validaCpf();
@@ -58,10 +74,8 @@ $("input[name=modalidade]").change(() => {
     var quantidade = $('#quantidade').val();
     var modalidade = $('input[name=modalidade]:checked').val();
     var valor = quantidade * modalidade;
-
     $("#final").html(valor);
     $("#valor").val(valor);
-
 });
 
 

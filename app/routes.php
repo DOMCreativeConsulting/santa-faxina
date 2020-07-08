@@ -23,4 +23,6 @@ $router->get("$folder/juridica", 'HomeController@juridica');
 $router->get("$folder/painel", 'HomeController@painel');
 $router->get("$folder/painel-juridico", 'HomeController@painelJuridico');
 
+$router->get("$folder/cidades", 'CidadesController@index');
+
 $router->post("$folder/entidade", 'TestController@index');
