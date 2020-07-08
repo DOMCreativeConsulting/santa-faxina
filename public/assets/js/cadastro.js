@@ -75,13 +75,13 @@ $('#botao-passo3').click(() => {
             const obs = `&observacao=${replaced}`;
             const data = form+obs;
             
-            $.post('cadastrar', data);
-            $.post('entidade', data)
-            .done(e =>  {
+            // $.post('cadastrar', data);
+            // $.post('entidade', data)
+            // .done(e =>  {
                 $("#passo3").hide();
                 $("#passo4").fadeIn(300);
-            })
-            .fail(e => alert("Não foi"));
+            // })
+            // .fail(e => alert("Não foi"));
 
         } else {
             alert("Você deve preencher o reCAPTCHA 'Não sou um robô'");
@@ -95,7 +95,6 @@ $("#passo4").submit(() => {
     event.preventDefault();
     dadosEmail = $('#passo4').serialize() + '&nome=' + $('#nome').val() + '&email=' + $('#email').val();
     $.post('enviar-email', dadosEmail);
-
 
     $("#passo4").hide();
     $("#passo5").fadeIn(300);

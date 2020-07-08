@@ -14,20 +14,6 @@
             </div>
             <div class="row p-2">
                 <div class="col-md-4">
-                    <label for="nome">Nome completo (responsável):</label>
-                    <input type="text" class="form-control" name="nome" id="nome" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="rg">RG:</label>
-                    <input type="text" class="form-control" name="rg" required>
-                </div>
-                <div class="col-md-4">
-                    <label for="cpf">CPF:</label>
-                    <input type="text" class="form-control" id="cpf" name="cpf" required>
-                </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-md-4">
                     <label for="nome_fantasia">Nome fantasia:</label>
                     <input type="text" class="form-control" name="nome_fantasia" id="nome" required>
                 </div>
@@ -56,8 +42,8 @@
             </div>
             <div class="row p-2">    
                 <div class="col-md-4">
-                    <label for="natureza">Natureza do negócio:</label>
-                    <input type="text" class="form-control" name="natureza" required>
+                    <label for="Natureza_negocio">Natureza do negócio:</label>
+                    <input type="text" class="form-control" name="Natureza_negocio" required>
                 </div>
                 <div class="col-md-4">
                     <label for="quem_recebe">Quem receberá a diarista:</label>

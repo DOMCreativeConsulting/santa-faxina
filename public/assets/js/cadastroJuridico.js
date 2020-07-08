@@ -13,9 +13,8 @@ $('#passo1juridico').submit(() => {
 
     event.preventDefault();
     var validacao = validarCnpj();
-    var validacaoCpf = validaCpf();
 
-    if(validacao == true && validacaoCpf == true){
+    if(validacao == true ){
         $("#passo1juridico").hide();
         $("#passo2juridico").fadeIn(300);
     }else{
@@ -62,7 +61,7 @@ $('#botao-passo3').click(() => {
     if($('#aceito').prop("checked") == true){
         if(isCaptchaChecked()){
             var data = $('#passo1juridico').serialize() + '&' + $('#passo2juridico').serialize();
-
+            console.log(data);
             $.post('cadastrar-juridico', data);
             $.post('entidade', data)
             .done(e =>  {
