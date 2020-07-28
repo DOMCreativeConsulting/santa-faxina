@@ -8,6 +8,6 @@ use App\models\Model;
 class Cidade extends Model
 {
     
-    public static $table = 'cidade';
+    public static $table = 'cidades';
 
 }

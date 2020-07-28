@@ -92,6 +92,7 @@ $('#botao-passo3').click(() => {
             // $.post('cadastrar', data);
             // $.post('entidade', data)
             // .done(e =>  {
+                console.log(data);
                 $("#passo3").hide();
                 $("#passo4").fadeIn(300);
             // })

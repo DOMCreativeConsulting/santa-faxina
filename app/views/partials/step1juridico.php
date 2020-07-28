@@ -64,8 +64,10 @@
                     <input type="text" class="form-control" name="bairro" required>
                 </div>
                 <div class="col-md-4">
-                    <label for="cidade">Cidade:</label>
-                    <input type="text" class="form-control" name="cidade" required>
+                    <label for="cidades">Cidades:</label>
+                    <input list="cidades" name="Cod_IBGE" class="form-control" autocomplete=false>
+                    <datalist id="cidades">
+                    </datalist> 
                 </div>
             </div>
             <div class="row pb-4 p-2"> 

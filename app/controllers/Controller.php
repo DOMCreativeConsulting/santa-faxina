@@ -11,5 +11,10 @@ class Controller
     {
         echo json_encode($dados);
     }
+
+    public function responderJSON2($dados)
+    {
+        echo json_encode($dados, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_INVALID_UTF8_SUBSTITUTE );
+    }
     
 }

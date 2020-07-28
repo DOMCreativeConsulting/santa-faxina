@@ -9,6 +9,22 @@ $("#cep").mask('00000-000');
 $("#telefone").mask('(00) 00000-0000');
 $('#quantidade').mask('000000');
 
+$('document').ready(() => {
+    $.get('cidades')
+        .done( data => {
+            const cidades = JSON.parse(data);
+            const datalist = document.querySelector("#cidades");
+
+            cidades.map(c => {
+                const cidadeOption = document.createElement('option');
+                cidadeOption.appendChild( document.createTextNode(c.nome) );
+                cidadeOption.value = c.codigo; 
+                datalist.appendChild(cidadeOption)
+            });
+        })
+        .fail( error => console.error(error))
+})
+
 $('#passo1juridico').submit(() => {
 
     event.preventDefault();

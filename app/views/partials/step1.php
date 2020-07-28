@@ -61,9 +61,8 @@
                 </div>
                 <div class="col-md-4">
                     <label for="cidades">Cidades:</label>
-                    <input list="cidades" class="form-control" autocomplete=false>
+                    <input list="cidades" name="Cod_IBGE" class="form-control" autocomplete=false>
                     <datalist id="cidades">
-                        <option value="Internet Explorer">
                     </datalist> 
                 </div>
                 <div class="col-md-4">
