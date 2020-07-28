@@ -61,6 +61,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="cidades">Cidades:</label>
+                    <input name="COD_IBGE" id="COD_IBGE" class="form-control" autocomplete=false style="display:none" >
                     <input list="cidades" name="Cod_IBGE" class="form-control" autocomplete=false>
                     <datalist id="cidades">
                     </datalist> 

@@ -11,22 +11,6 @@ $('#quantidade').mask('000000');
 
 var form = [];
 
-$('document').ready(() => {
-    $.get('cidades')
-        .done( data => {
-            const cidades = JSON.parse(data);
-            const datalist = document.querySelector("#cidades");
-
-            cidades.map(c => {
-                const cidadeOption = document.createElement('option');
-                cidadeOption.appendChild( document.createTextNode(c.nome) );
-                cidadeOption.value = c.codigo; 
-                datalist.appendChild(cidadeOption)
-            });
-        })
-        .fail( error => console.error(error))
-})
-
 $('#passo1').submit(() => {
     event.preventDefault();
     var validacao = validaCpf();

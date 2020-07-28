@@ -15,4 +15,5 @@ footer{
 </div>  
 <?php include 'app/views/partials/footer.php'; ?>
 <script src="public/assets/js/cadastro.js"></script>
+<script src="public/assets/js/cidades.js"></script>
 <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
