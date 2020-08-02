@@ -15,11 +15,11 @@ $('#passo1').submit(() => {
 
     var validacao = validaCpf();
 
-    if(validacao == false){
+    if (validacao == false) {
 
         alert("Por favor digite um CPF válido!");
 
-    }else{
+    } else {
 
         $("#passo1").hide();
         $("#passo2").fadeIn(300);
@@ -39,47 +39,40 @@ $('#passo3').submit(() => {
     event.preventDefault();
 });
 
-$('#quantidade').change(() => {
+$('#quantidade').change(calcularValor());
+$("input[name=modalidade]").change(calcularValor());
 
+function calcularValor() {
     var quantidade = $('#quantidade').val();
     var modalidade = $('input[name=modalidade]:checked').val();
     var valor = quantidade * modalidade;
 
     $("#final").html(valor);
     $("#valor").val(valor);
-
-});
-
-$("input[name=modalidade]").change(() => {
-
-    var quantidade = $('#quantidade').val();
-    var modalidade = $('input[name=modalidade]:checked').val();
-    var valor = quantidade * modalidade;
-
-    $("#final").html(valor);
-    $("#valor").val(valor);
-
-});
+}
 
 $('#botao-passo3').click(() => {
 
-    if($('#aceito').prop("checked") == true){
+    if ($('#aceito').prop("checked") == true) {
 
-        if(isCaptchaChecked()){
+        if (isCaptchaChecked()) {
 
             var dados = $('#passo1').serialize() + '&' + $('#passo2').serialize();
+            var dadosEmail = { nome: $('#nome').val(), email: $('#email').val() };
             $.post('cadastrar', dados);
+            $.post('enviar-email-boas-vindas', dadosEmail);
+            $.post('enviar-email-cadastro', dadosEmail);
 
             $("#passo3").hide();
             $("#passo4").fadeIn(300);
 
-        }else{
+        } else {
 
             alert("Você deve preencher o reCAPTCHA 'Não sou um robô'");
 
         }
 
-    }else{
+    } else {
 
         alert('Você deve ler e aceitar os termos e condições do regulamento.')
 
@@ -90,6 +83,7 @@ $('#botao-passo3').click(() => {
 $("#passo4").submit(() => {
 
     event.preventDefault();
+    calcularValor();
 
     dadosEmail = $('#passo4').serialize() + '&nome=' + $('#nome').val() + '&email=' + $('#email').val();
     $.post('enviar-email', dadosEmail);
@@ -99,7 +93,7 @@ $("#passo4").submit(() => {
 
 });
 
-function validaCpf(){
+function validaCpf() {
 
     var cpf = $("#cpf").val();
 
@@ -122,24 +116,24 @@ function validaCpf(){
         strCPF2 == "77777777777" ||
         strCPF2 == "88888888888" ||
         strCPF2 == "99999999999"
-    ){
+    ) {
         return false;
     }
 
-    for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF2.substring(i-1, i)) * (11 - i);
+    for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF2.substring(i - 1, i)) * (11 - i);
     Resto = (Soma * 10) % 11;
 
-    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-    if (Resto != parseInt(strCPF2.substring(9, 10)) ){
-       return false;
+    if ((Resto == 10) || (Resto == 11)) Resto = 0;
+    if (Resto != parseInt(strCPF2.substring(9, 10))) {
+        return false;
     }
 
     Soma = 0;
-    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF2.substring(i-1, i)) * (12 - i);
+    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF2.substring(i - 1, i)) * (12 - i);
     Resto = (Soma * 10) % 11;
 
-    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-    if (Resto != parseInt(strCPF2.substring(10, 11) ) ) {
+    if ((Resto == 10) || (Resto == 11)) Resto = 0;
+    if (Resto != parseInt(strCPF2.substring(10, 11))) {
         return false;
     }
 
