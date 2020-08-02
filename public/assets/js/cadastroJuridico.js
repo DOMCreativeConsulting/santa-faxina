@@ -14,7 +14,7 @@ $('#passo1juridico').submit(() => {
     event.preventDefault();
     var validacao = validarCnpj();
 
-    if (validacao == true && validacaoCpf == true) {
+    if (validacao == true) {
         $("#passo1juridico").hide();
         $("#passo2juridico").fadeIn(300);
     } else {
@@ -47,11 +47,8 @@ function calcularValor() {
 }
 
 $('#botao-passo3').click(() => {
-
     if ($('#aceito').prop("checked") == true) {
-
         if (isCaptchaChecked()) {
-
             var dados = $('#passo1juridico').serialize() + '&' + $('#passo2juridico').serialize();
             var dadosEmail = { nome: $('#nome').val(), email: $('#email').val() };
             $.post('cadastrar-juridico', dados);
@@ -61,19 +58,10 @@ $('#botao-passo3').click(() => {
 
             $("#passo3juridico").hide();
             $("#passo4juridico").fadeIn(300);
-
-        } else {
-
+        } else
             alert("Você deve preencher o reCAPTCHA 'Não sou um robô'");
-
-        }
-
-    } else {
-
+    } else
         alert('Você deve ler e aceitar os termos e condições do regulamento.')
-
-    }
-
 });
 
 $("#passo4juridico").submit(() => {

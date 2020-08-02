@@ -1,6 +1,6 @@
 <?php
 
-$folder = 'jobs/santa-faxina';
+$folder = 'santa-faxina';
 
 $router->post("$folder/login", 'UsersController@login');
 $router->get("$folder/logout", 'UsersController@logout');

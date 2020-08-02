@@ -55,7 +55,7 @@ class EmailController extends Controller
         .$quantidade."</b> profissionais, completando um valor final de <b>"
         .$valor.",00 R$.</b>";
 
-        $teste = Email::enviar($email, 'contatoruanvinicius@gmail.com', $conteudo, $nome);
+        $teste = Email::enviar($email, 'aznuclear@gmail.com', $conteudo, $nome);
         //financeiro@santafaxina.com.br
     }
 

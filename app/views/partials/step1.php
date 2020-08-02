@@ -71,13 +71,11 @@
                     <input type="text" class="form-control" name="referencia">
                 </div>
             </div>
-            <div class="row pb-4 p2">
+            <div class="row pb-4 p-2">
                 <div class="col-md-4">
-                <label for="complemento">Complemento:</label>
+                    <label for="complemento">Complemento:</label>
                     <input type="text" class="form-control" name="complemento">
                 </div>
-            </div>
-            <div class="row pb-4 p-2">
                 <div class="col-md-4">
                     <button type="submit" id="botao-passo1" class="btn btn-primary" style="margin-top:32px;width:100%">Próximo</button>
                 </div>

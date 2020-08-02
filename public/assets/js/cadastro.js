@@ -70,15 +70,10 @@ $('#botao-passo3').click(() => {
             $.post('cadastrar', dados);
             $.post('enviar-email-boas-vindas', dadosEmail);
             $.post('enviar-email-cadastro', dadosEmail);
+            $.post('entidade', data);
 
-            $.post('entidade', data)
-                .done(r => {
-                    console.log(data);
-                    $("#passo3").hide();
-                    $("#passo4").fadeIn(300);
-                })
-                .fail(e => console.log("Ocorreu um erro ao comunicar com a api: ", e));
-
+            $("#passo3").hide();
+            $("#passo4").fadeIn(300);
         } else {
             alert("Você deve preencher o reCAPTCHA 'Não sou um robô'");
         }
