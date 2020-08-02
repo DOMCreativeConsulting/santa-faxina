@@ -18,7 +18,7 @@ $('#passo1').submit(() => {
     if (validacao == false) {
         alert("Por favor digite um CPF válido!");
     } else {
-        $("#passo1 input").val(function(i,val) {
+        $("#passo1 input").val(function (i, val) {
             return val.toUpperCase();
         });
         form = $("#passo1").serialize();
@@ -30,61 +30,59 @@ $('#passo1').submit(() => {
 
 $('#passo2').submit(() => {
     event.preventDefault();
-    $("#passo2 input").val(function(i,val) {
+    $("#passo2 input").val(function (i, val) {
         return val.toUpperCase();
     });
-    form += "&"+$("#passo2").serialize();
+    form += "&" + $("#passo2").serialize();
     $("#passo2").hide();
     $("#passo3").fadeIn(300);
 });
 
 $('#passo3').submit(() => {
     event.preventDefault();
-    form += "&"+$("#passo3").serialize();
+    form += "&" + $("#passo3").serialize();
 });
 
-$('#quantidade').change(() => {
+$('#quantidade').change(calcularValor());
+$("input[name=modalidade]").change(calcularValor());
 
+function calcularValor() {
     var quantidade = $('#quantidade').val();
     var modalidade = $('input[name=modalidade]:checked').val();
     var valor = quantidade * modalidade;
 
     $("#final").html(valor);
     $("#valor").val(valor);
-
-});
-
-$("input[name=modalidade]").change(() => {
-    var quantidade = $('#quantidade').val();
-    var modalidade = $('input[name=modalidade]:checked').val();
-    var valor = quantidade * modalidade;
-    $("#final").html(valor);
-    $("#valor").val(valor);
-});
-
+}
 
 $('#botao-passo3').click(() => {
     if ($('#aceito').prop("checked") == true) {
         if (isCaptchaChecked()) {
-            $("input").val(function(i,val) {
+            $("input").val(function (i, val) {
                 return val.toUpperCase();
             });
             const replaced = form.replace(/&/g, String.fromCharCode(13));
             const obs = `&observacao=${replaced}`;
-            const data = form+obs;
-            
-            // $.post('cadastrar', data);
-            // $.post('entidade', data)
-            // .done(e =>  {
-                console.log(data);
-                $("#passo3").hide();
-                $("#passo4").fadeIn(300);
-            // })
-            // .fail(e => alert("Não foi"));
+            const data = form + obs;
+
+            var dados = $('#passo1').serialize() + '&' + $('#passo2').serialize();
+            var dadosEmail = { nome: $('#nome').val(), email: $('#email').val() };
+            $.post('cadastrar', dados);
+            $.post('enviar-email-boas-vindas', dadosEmail);
+            $.post('enviar-email-cadastro', dadosEmail);
+
+            $.post('entidade', data)
+                .done(r => {
+                    console.log(data);
+                    $("#passo3").hide();
+                    $("#passo4").fadeIn(300);
+                })
+                .fail(e => console.log("Ocorreu um erro ao comunicar com a api: ", e));
 
         } else {
             alert("Você deve preencher o reCAPTCHA 'Não sou um robô'");
         }
+
     } else {
         alert('Você deve ler e aceitar os termos e condições do regulamento.')
     }
@@ -92,6 +90,8 @@ $('#botao-passo3').click(() => {
 
 $("#passo4").submit(() => {
     event.preventDefault();
+    calcularValor();
+
     dadosEmail = $('#passo4').serialize() + '&nome=' + $('#nome').val() + '&email=' + $('#email').val();
     $.post('enviar-email', dadosEmail);
 
@@ -153,7 +153,7 @@ function isCaptchaChecked() {
 
 // PARA FINS DE TESTES
 $("#send-request").click(() => {
-    $.post("entidade",post)
-    .done(e => console.log("AAA"))
-    .fail(e => console.log(e))
+    $.post("entidade", post)
+        .done(e => console.log("AAA"))
+        .fail(e => console.log(e))
 });

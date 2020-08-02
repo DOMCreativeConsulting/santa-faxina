@@ -25,7 +25,7 @@ class Email extends Model
             //$mail->SMTPSecure = 'ssl';
             $mail->Port       = 587;
             
-            $mail->setFrom($remetente, $nome);
+            $mail->setFrom('financeiro@santafaxina.com.br', $nome);
             $mail->addAddress($destinatario, $nome);
             $mail->addAddress($destinatario);
             $mail->addReplyTo($remetente, $nome);
