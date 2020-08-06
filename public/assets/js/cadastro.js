@@ -43,10 +43,7 @@ $('#passo3').submit(() => {
     form += "&" + $("#passo3").serialize();
 });
 
-$('#quantidade').change(calcularValor());
-$("input[name=modalidade]").change(calcularValor());
-
-function calcularValor() {
+const calcularValor = () => {
     var quantidade = $('#quantidade').val();
     var modalidade = $('input[name=modalidade]:checked').val();
     var valor = quantidade * modalidade;
@@ -54,6 +51,9 @@ function calcularValor() {
     $("#final").html(valor);
     $("#valor").val(valor);
 }
+
+$('#quantidade').keyup(calcularValor);
+$("input[name=modalidade]").change(calcularValor);
 
 $('#botao-passo3').click(() => {
     if ($('#aceito').prop("checked") == true) {
@@ -66,10 +66,10 @@ $('#botao-passo3').click(() => {
             const data = form + obs;
 
             var dados = $('#passo1').serialize() + '&' + $('#passo2').serialize();
-            var dadosEmail = { nome: $('#nome').val(), email: $('#email').val() };
+
             $.post('cadastrar', dados);
-            $.post('enviar-email-boas-vindas', dadosEmail);
-            $.post('enviar-email-cadastro', dadosEmail);
+            $.post('enviar-email-boas-vindas', dados);
+            $.post('enviar-email-cadastro', dados);
             $.post('entidade', data);
 
             $("#passo3").hide();

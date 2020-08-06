@@ -34,10 +34,7 @@ $('#passo3juridico').submit(() => {
     event.preventDefault();
 });
 
-$('#quantidade').keyup(calcularValor());
-$("input[name=modalidade]").change(calcularValor());
-
-function calcularValor() {
+const calcularValor = () => {
     var quantidade = $('#quantidade').val();
     var modalidade = $('input[name=modalidade]:checked').val();
     var valor = quantidade * modalidade;
@@ -46,15 +43,18 @@ function calcularValor() {
     $("#valor").val(valor);
 }
 
+$('#quantidade').keyup(calcularValor);
+$("input[name=modalidade]").change(calcularValor);
+
 $('#botao-passo3').click(() => {
     if ($('#aceito').prop("checked") == true) {
         if (isCaptchaChecked()) {
             var dados = $('#passo1juridico').serialize() + '&' + $('#passo2juridico').serialize();
-            var dadosEmail = { nome: $('#nome').val(), email: $('#email').val() };
+
             $.post('cadastrar-juridico', dados);
             $.post('entidade', dados);
-            $.post('enviar-email-boas-vindas', dadosEmail);
-            $.post('enviar-email-cadastro', dadosEmail);
+            $.post('enviar-email-boas-vindas', dados);
+            $.post('enviar-email-cadastro', dados);
 
             $("#passo3juridico").hide();
             $("#passo4juridico").fadeIn(300);
